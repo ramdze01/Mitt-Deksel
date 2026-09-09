@@ -1,0 +1,50 @@
+/* Felles farger for hele siden. Endrer vi for eksempel --primary her, brukes den nye fargen overalt. */
+:root {
+  --background: #f8fafc;
+  --foreground: #0b1020;
+  --card: #ffffff;
+  --primary: #7c3aed;
+  --primary-foreground: #ffffff;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --border: rgba(11, 16, 32, 0.1);
+  --ring: #00d4ff;
+}
+
+/* Gjør CSS-variablene tilgjengelige som Tailwind-klasser som bg-primary og text-foreground. */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}
+
+/* Grunnstil som gjelder hele nettsiden. */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  }
+}
